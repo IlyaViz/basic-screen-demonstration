@@ -11,7 +11,6 @@ class Client:
         self.__dest_ip = dest_ip
         self.__dest_port = dest_port
         self.__socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.__shown_frames = 0
     
     def connect(self) -> None:
         self.__socket.connect((self.__dest_ip, self.__dest_port))
@@ -37,7 +36,6 @@ class Client:
         cv2_image = numpy.array(image)[:, :, ::-1].copy()
         cv2.imshow('frame', cv2_image)
         cv2.waitKey(1) 
-        self.__shown_frames += 1
         
 
 if __name__ == "__main__":
